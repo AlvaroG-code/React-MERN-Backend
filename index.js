@@ -1,3 +1,5 @@
+const path = require("path");
+
 const express = require("express");
 require("dotenv").config();
 const cors = require("cors");
@@ -24,6 +26,10 @@ app.use(express.json());
 //Importar las rutas
 app.use("/api/auth", require("./routes/auth")); // Rutas de autenticación
 app.use("/api/events", require("./routes/events")); // Rutas de eventos
+
+// app.use("*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "public/index.html"));
+// });
 
 //Escuchar peticiones HTTP
 app.listen(process.env.PORT, () => {
